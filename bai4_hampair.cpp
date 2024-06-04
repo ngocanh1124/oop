@@ -57,7 +57,7 @@ vector<int> GetRandom(int n, int S) {
 vector<pair<Ward, int>> WardProcessor(const vector<Ward>& wards, int triple, int single,  int numOfAgents) {
     if((triple+single) != numOfAgents) //nếu tổng single và triple không bằng numOfAgents thì ném ra thông báo lỗi
     throw invalid_argument("Invalid");
-    vector<int> random = GetRandom(wards.size()-2,  triple*3 + single); //gọi hàm GetRandom và truyền vào độ dài ward và tổng các int quy định
+    vector<int> random = GetRandom(wards.size(),  triple*3 + single); //gọi hàm GetRandom và truyền vào độ dài ward và tổng các int quy định
     vector<pair<Ward, int>> result;
     int remainingTriples = triple; // biến tạm để lưu triple và single còn lại
     int remainingSingles = single;
@@ -72,7 +72,7 @@ vector<pair<Ward, int>> WardProcessor(const vector<Ward>& wards, int triple, int
         } else {
             value = 0; 
         }
-        result.push_back(make_pair(wards[i+1], random[i]));
+        result.push_back(make_pair(wards[i], random[i]));
     }
     return result;
 }
