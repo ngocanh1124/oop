@@ -72,7 +72,7 @@ vector<pair<Ward, int>> WardProcessor(const vector<Ward>& wards, int triple, int
         } else {
             value = 0; 
         }
-        result.push_back(make_pair(wards[i], random[i]));
+        result.push_back(make_pair(wards[i+1], random[i]));
     }
     return result;
 }
